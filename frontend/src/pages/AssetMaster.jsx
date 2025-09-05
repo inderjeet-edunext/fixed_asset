@@ -133,8 +133,14 @@ const AssetMaster = () => {
   const [searchTerm, setSearchTerm] = useState(filters.search);
 
   useEffect(() => {
-    dispatch(fetchAssets());
-  }, [dispatch, filters, pagination.currentPage]);
+    // Only fetch if assets array is empty (for real API integration)
+    if (assets.length === 0) {
+      dispatch(fetchAssets()).catch(() => {
+        // If API fails, we'll use the mock data already in the store
+        console.log('Using mock data - API endpoints not available');
+      });
+    }
+  }, [dispatch, assets.length]);
 
   // Debounced search
   const debouncedSearch = debounce((term) => {
