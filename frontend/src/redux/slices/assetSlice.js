@@ -4,11 +4,19 @@ import { assetAPI } from '../../services/api';
 // Async thunks
 export const fetchAssets = createAsyncThunk(
   'assets/fetchAssets',
-  async (params, { rejectWithValue }) => {
+  async (params, { rejectWithValue, getState }) => {
     try {
       const response = await assetAPI.getAssets(params);
       return response.data;
     } catch (error) {
+      // If API is not available, return mock data from current state
+      const state = getState();
+      if (state.assets.assets.length > 0) {
+        return {
+          assets: state.assets.assets,
+          pagination: state.assets.pagination
+        };
+      }
       return rejectWithValue(error.response?.data || error.message);
     }
   }
