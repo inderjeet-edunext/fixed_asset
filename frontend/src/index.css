@@ -3,59 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-  --color-primary: #3b82f6;
-  --color-primary-dark: #1d4ed8;
-  --color-secondary: #64748b;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-background: #ffffff;
-  --color-surface: #f8fafc;
-  --color-border: #e2e8f0;
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #64748b;
-  --color-text-muted: #94a3b8;
-  
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  
-  --transition-fast: 150ms ease-in-out;
-  --transition-normal: 250ms ease-in-out;
-  --transition-slow: 500ms ease-in-out;
-}
-
 @layer base {
   * {
-    @apply border-border;
+    @apply border-gray-200;
   }
   
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-white text-gray-900 font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-text-primary;
+    @apply font-semibold text-gray-900;
   }
   
   input, textarea, select {
-    @apply transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary;
+    @apply transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500;
   }
   
   button {
-    @apply transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary/20;
+    @apply transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500/20;
   }
 }
 
@@ -65,31 +32,31 @@
   }
   
   .btn-primary {
-    @apply btn bg-primary text-white hover:bg-primary-dark focus:ring-primary/50;
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500/50;
   }
   
   .btn-secondary {
-    @apply btn bg-secondary/10 text-secondary hover:bg-secondary/20 focus:ring-secondary/50;
+    @apply btn bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500/50;
   }
   
   .btn-success {
-    @apply btn bg-success text-white hover:bg-success/90 focus:ring-success/50;
+    @apply btn bg-green-600 text-white hover:bg-green-700 focus:ring-green-500/50;
   }
   
   .btn-warning {
-    @apply btn bg-warning text-white hover:bg-warning/90 focus:ring-warning/50;
+    @apply btn bg-yellow-600 text-white hover:bg-yellow-700 focus:ring-yellow-500/50;
   }
   
   .btn-error {
-    @apply btn bg-error text-white hover:bg-error/90 focus:ring-error/50;
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500/50;
   }
   
   .btn-outline {
-    @apply btn border border-border bg-background hover:bg-surface focus:ring-primary/50;
+    @apply btn border border-gray-300 bg-white hover:bg-gray-50 focus:ring-blue-500/50;
   }
   
   .btn-ghost {
-    @apply btn hover:bg-surface focus:ring-primary/50;
+    @apply btn hover:bg-gray-100 focus:ring-blue-500/50;
   }
   
   .btn-sm {
@@ -105,51 +72,31 @@
   }
   
   .input {
-    @apply flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-text-muted disabled:cursor-not-allowed disabled:opacity-50;
+    @apply flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 disabled:cursor-not-allowed disabled:opacity-50;
   }
   
   .card {
-    @apply rounded-lg border border-border bg-background text-card-foreground shadow-sm;
+    @apply rounded-lg border border-gray-200 bg-white shadow-sm;
   }
   
   .modal-overlay {
-    @apply fixed inset-0 z-50 bg-background/80 backdrop-blur-sm;
+    @apply fixed inset-0 z-50 bg-black/50 backdrop-blur-sm;
   }
   
   .modal-content {
-    @apply fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border border-border bg-background p-6 shadow-lg;
+    @apply fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border border-gray-200 bg-white p-6 shadow-lg;
   }
   
   .spinner {
-    @apply animate-spin rounded-full border-2 border-border border-t-primary;
+    @apply animate-spin rounded-full border-2 border-gray-300 border-t-blue-600;
   }
   
   .skeleton {
-    @apply animate-pulse rounded bg-surface;
-  }
-  
-  .fade-in {
-    @apply animate-in fade-in-0 duration-300;
-  }
-  
-  .slide-in-from-right {
-    @apply animate-in slide-in-from-right-full duration-300;
-  }
-  
-  .slide-in-from-left {
-    @apply animate-in slide-in-from-left-full duration-300;
-  }
-  
-  .zoom-in {
-    @apply animate-in zoom-in-95 duration-200;
+    @apply animate-pulse rounded bg-gray-200;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -169,15 +116,15 @@
   }
   
   .scrollbar-thin::-webkit-scrollbar-track {
-    @apply bg-surface;
+    @apply bg-gray-100;
   }
   
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    @apply bg-border rounded-full;
+    @apply bg-gray-300 rounded-full;
   }
   
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    @apply bg-text-muted;
+    @apply bg-gray-400;
   }
 }
 
@@ -201,53 +148,6 @@
   height: 40px;
 }
 
-/* Animation keyframes */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInFromRight {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
-@keyframes slideInFromLeft {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* Responsive utilities */
-@media (max-width: 640px) {
-  .responsive-padding {
-    @apply px-4 py-2;
-  }
-  
-  .responsive-text {
-    @apply text-sm;
-  }
-}
-
-@media (min-width: 641px) {
-  .responsive-padding {
-    @apply px-6 py-4;
-  }
-  
-  .responsive-text {
-    @apply text-base;
-  }
-}
-
-/* Focus visible for better accessibility */
-.focus-visible:focus-visible {
-  @apply outline-2 outline-offset-2 outline-primary;
-}
-
 /* Loading states */
 .loading-shimmer {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
@@ -262,4 +162,9 @@
   100% {
     background-position: -200% 0;
   }
+}
+
+/* Focus visible for better accessibility */
+.focus-visible:focus-visible {
+  @apply outline-2 outline-offset-2 outline-blue-600;
 }
