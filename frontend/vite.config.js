@@ -15,6 +15,11 @@ export default defineConfig({
     port: 3000,
     host: '0.0.0.0',
     cors: true,
+    allowedHosts: [
+      'assetmaster-6.preview.emergentagent.com',
+      'localhost',
+      '127.0.0.1'
+    ],
     hmr: {
       port: 3000
     },
