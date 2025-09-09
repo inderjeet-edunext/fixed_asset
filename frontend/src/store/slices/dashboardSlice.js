@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { dashboardAPI } from '../../services/api';
+import { dashboardAPI } from '@/services/api';
 
 // Async thunks
 export const fetchDashboardData = createAsyncThunk(
