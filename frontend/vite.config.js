@@ -27,6 +27,7 @@ export default defineConfig({
     cors: true,
     allowedHosts: [
       'assetmaster-6.preview.emergentagent.com',
+      'fixedassets-1.preview.emergentagent.com',
       'localhost',
       '127.0.0.1'
     ],
