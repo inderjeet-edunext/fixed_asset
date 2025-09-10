@@ -8,6 +8,14 @@ export default defineConfig({
       include: "**/*.{jsx,js}",
     })
   ],
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.jsx': 'jsx',
+        '.js': 'jsx',
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
