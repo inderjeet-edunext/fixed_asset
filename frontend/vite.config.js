@@ -4,20 +4,10 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [
-    react()
+    react({
+      include: "**/*.{jsx,js}",
+    })
   ],
-  esbuild: {
-    loader: "jsx",
-    include: /src\/.*\.[jt]sx?$/,
-    exclude: []
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      loader: {
-        '.js': 'jsx',
-      },
-    },
-  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
@@ -50,8 +40,6 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'router-vendor': ['react-router-dom'],
-          'redux-vendor': ['@reduxjs/toolkit', 'react-redux', 'redux-persist'],
-          'icons-vendor': ['react-icons'],
         }
       }
     }
