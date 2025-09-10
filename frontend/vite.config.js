@@ -6,6 +6,18 @@ export default defineConfig({
   plugins: [
     react()
   ],
+  esbuild: {
+    loader: "jsx",
+    include: /src\/.*\.[jt]sx?$/,
+    exclude: []
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
@@ -43,8 +55,5 @@ export default defineConfig({
         }
       }
     }
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', '@reduxjs/toolkit', 'react-redux']
   }
 })
