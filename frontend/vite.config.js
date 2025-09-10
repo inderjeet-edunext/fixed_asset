@@ -4,8 +4,18 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [
-    react()
+    react({
+      include: "**/*.{jsx,js}",
+    })
   ],
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.jsx': 'jsx',
+        '.js': 'jsx',
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
@@ -15,6 +25,12 @@ export default defineConfig({
     port: 3000,
     host: '0.0.0.0',
     cors: true,
+    allowedHosts: [
+      'assetmaster-6.preview.emergentagent.com',
+      'fixedassets-1.preview.emergentagent.com',
+      'localhost',
+      '127.0.0.1'
+    ],
     hmr: {
       port: 3000
     },
@@ -33,13 +49,8 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'router-vendor': ['react-router-dom'],
-          'redux-vendor': ['@reduxjs/toolkit', 'react-redux', 'redux-persist'],
-          'icons-vendor': ['react-icons'],
         }
       }
     }
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', '@reduxjs/toolkit', 'react-redux']
   }
 })
