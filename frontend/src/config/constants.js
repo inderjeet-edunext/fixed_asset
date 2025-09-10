@@ -1,6 +1,6 @@
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_BASE_URL || 'https://assetmaster-6.preview.emergentagent.com',
+  BASE_URL: import.meta.env.VITE_API_BASE_URL || 'https://fixedassets-1.preview.emergentagent.com',
   TIMEOUT: 10000,
   RETRY_ATTEMPTS: 3,
 };
