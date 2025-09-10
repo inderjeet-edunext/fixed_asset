@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../components/Button';
-import { Input } from '../components/ui/input';
-import { Badge } from '../components/ui/badge';
 import { Checkbox } from '../components/ui/checkbox';
 import { 
   Filter, 
@@ -100,9 +98,7 @@ const AssetRow = ({ asset, isSelected, onSelect }) => {
         <span className="text-sm text-slate-900">{asset.depreciationValue}</span>
       </td>
       <td className="py-4 px-4">
-        <Badge className={getStatusColor(asset.status)}>
-          {asset.status}
-        </Badge>
+       
       </td>
       <td className="py-4 px-4">
         <div className="relative">
@@ -190,7 +186,7 @@ const AssetMaster = () => {
   const isPartiallySelected = selectedAssets.length > 0 && selectedAssets.length < assets.length;
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 space-y-6">
       {/* Page Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900 mb-2">Asset Master</h1>
@@ -206,12 +202,7 @@ const AssetMaster = () => {
           </Button>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
-            <Input 
-              placeholder="Search assets..." 
-              className="pl-10 w-64"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+           
           </div>
         </div>
         

@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
 import { Button } from '../components/Button';
-import { Progress } from '../components/ui/progress';
 import { 
   Package, 
   CheckCircle, 
@@ -13,7 +11,6 @@ import {
   MapPin,
   Calendar,
   Clock,
-  Filter,
   Eye
 } from 'lucide-react';
 import { fetchDashboardData } from '../redux/slices/dashboardSlice';
@@ -143,7 +140,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="p-6 space-y-8">
+    <div className="p-4 space-y-8">
       {/* Page Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-slate-900 mb-2">Dashboard Overview</h1>

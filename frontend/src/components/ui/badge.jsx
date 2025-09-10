@@ -1,34 +1,44 @@
-import * as React from "react"
-import { cva } from "class-variance-authority";
+import React, { memo } from 'react';
+import { cn } from '@/utils/cn';
 
-import { cn } from "../../lib/utils"
+const badgeVariants = {
+  variant: {
+    default: 'bg-primary/10 text-primary border-primary/20',
+    secondary: 'bg-secondary/10 text-secondary border-secondary/20',
+    success: 'bg-success/10 text-success border-success/20',
+    warning: 'bg-warning/10 text-warning border-warning/20',
+    error: 'bg-error/10 text-error border-error/20',
+    outline: 'text-text-primary border-border bg-background',
+  },
+  size: {
+    sm: 'px-2 py-0.5 text-xs',
+    md: 'px-2.5 py-1 text-sm',
+    lg: 'px-3 py-1.5 text-base',
+  },
+};
 
-const badgeVariants = cva(
-  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-  {
-    variants: {
-      variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        outline: "text-foreground",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-)
-
-function Badge({
+const Badge = memo(({
   className,
-  variant,
+  variant = 'default',
+  size = 'md',
+  children,
   ...props
-}) {
-  return (<div className={cn(badgeVariants({ variant }), className)} {...props} />);
-}
+}) => {
+  return (
+    <span
+      className={cn(
+        'inline-flex items-center rounded-full border font-medium transition-colors',
+        badgeVariants.variant[variant],
+        badgeVariants.size[size],
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </span>
+  );
+});
 
-export { Badge, badgeVariants }
+Badge.displayName = 'Badge';
+
+export default Badge;

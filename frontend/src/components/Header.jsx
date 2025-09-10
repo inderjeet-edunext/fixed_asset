@@ -1,16 +1,11 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import { Button } from './Button';
-import { Avatar, AvatarFallback } from './ui/avatar';
-import { 
-  Menu, 
-  Filter, 
-  Search, 
-  Bell 
-} from 'lucide-react';
-import { toggleSidebar } from '../redux/slices/navigationSlice';
-import { openModal } from '../redux/slices/uiSlice';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import { Button } from "./Button";
+import { Avatar, AvatarFallback } from "./ui/avatar";
+import { Menu, Filter, Search, Bell } from "lucide-react";
+import { toggleSidebar } from "../redux/slices/navigationSlice";
+import { openModal } from "../redux/slices/uiSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -19,39 +14,43 @@ const Header = () => {
 
   const getPageTitle = () => {
     const pathMap = {
-      '/dashboard': 'Dashboard',
-      '/asset-management/asset-master': 'Asset Master',
-      '/asset-management/asset-transfer': 'Asset Transfer',
-      '/asset-management/asset-disposal': 'Asset Disposal',
-      '/asset-management/depreciation-calculation': 'Depreciation Calculation',
-      '/maintenance-management': 'Maintenance Management',
-      '/audit-module': 'Audit Module',
-      '/users': 'Users',
-      '/configuration': 'Configuration',
-      '/reports': 'Reports',
+      "/dashboard": "Dashboard",
+      "/asset-management/asset-master": "Asset Master",
+      "/asset-management/asset-transfer": "Asset Transfer",
+      "/asset-management/asset-disposal": "Asset Disposal",
+      "/asset-management/depreciation-calculation": "Depreciation Calculation",
+      "/maintenance-management": "Maintenance Management",
+      "/audit-module": "Audit Module",
+      "/users": "Users",
+      "/configuration": "Configuration",
+      "/reports": "Reports",
     };
-    return pathMap[location.pathname] || 'Dashboard';
+    return pathMap[location.pathname] || "Dashboard";
   };
 
   const handleQuickActionsClick = () => {
-    dispatch(openModal({
-      modalName: 'quickActions',
-      config: { title: 'Quick Actions' }
-    }));
+    dispatch(
+      openModal({
+        modalName: "quickActions",
+        config: { title: "Quick Actions" },
+      })
+    );
   };
 
   return (
-    <header className="bg-white px-6 py-3.5" role="banner">
+    <header className="bg-white p-4" role="banner">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => dispatch(toggleSidebar())}
-            aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-            className="hover:bg-slate-100"
+            aria-label={
+              sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
+            }
+            className="hover:bg-slate-200 bg-slate-100"
           >
-            <Menu className="h-5 w-5" />
+            <Menu className="h-5 w-5 bg-sla" />
           </Button>
           <div>
             <h1 className="text-xl font-semibold text-slate-900">
@@ -65,23 +64,23 @@ const Header = () => {
             <Filter className="h-4 w-4" />
             <span className="text-sm">Filter</span>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-2 text-slate-600">
             <Search className="h-4 w-4" />
             <span className="text-sm">Search...</span>
           </div>
-          
-          <Button 
-            size="sm" 
+
+          <Button
+            size="sm"
             className="bg-blue-600 hover:bg-blue-700 text-white"
             onClick={handleQuickActionsClick}
             aria-label="Open quick actions menu"
           >
             Quick Actions
           </Button>
-          
-          <Button 
-            variant="ghost" 
+
+          <Button
+            variant="ghost"
             size="icon"
             aria-label="View notifications"
             className="relative hover:bg-slate-100"
@@ -92,7 +91,7 @@ const Header = () => {
               3
             </span>
           </Button>
-          
+
           <Avatar className="h-8 w-8 cursor-pointer">
             <AvatarFallback className="bg-blue-100 text-blue-700 text-sm font-medium">
               AD

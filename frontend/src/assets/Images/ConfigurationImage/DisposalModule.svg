@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_228197" data-name="Rectangle 228197" width="20" height="20" rx="5" transform="translate(377 153)" fill="#11a14a"/>
+    </clipPath>
+  </defs>
+  <g id="Group_271353" data-name="Group 271353" transform="translate(-372 -148)">
+    <rect id="Rectangle_228196" data-name="Rectangle 228196" width="30" height="30" rx="5" transform="translate(372 148)" fill="#e8f7f1"/>
+    <g id="Mask_Group_89463" data-name="Mask Group 89463" clip-path="url(#clip-path)">
+      <path id="trash-list" d="M9.241,14.667H5.422a1.992,1.992,0,0,1-1.991-1.809L2.58,4h9.491l-.057.6a.666.666,0,0,0,.6.727.515.515,0,0,0,.064,0,.666.666,0,0,0,.663-.6L13.409,4H14a.667.667,0,1,0,0-1.333H11.266A3.34,3.34,0,0,0,8,0H6.667A3.339,3.339,0,0,0,3.4,2.667H.667A.667.667,0,0,0,.667,4h.574L2.1,12.986A3.319,3.319,0,0,0,5.423,16H9.241a.667.667,0,0,0,0-1.333ZM6.667,1.333H8A2,2,0,0,1,9.885,2.667h-5.1A2,2,0,0,1,6.667,1.333Zm9.333,6A.666.666,0,0,1,15.333,8h-4a.667.667,0,1,1,0-1.333h4A.666.666,0,0,1,16,7.333Zm-1.333,3.333a.666.666,0,0,1-.667.667H11.333a.667.667,0,0,1,0-1.333H14A.666.666,0,0,1,14.667,10.667ZM13.333,14a.666.666,0,0,1-.667.667H11.333a.667.667,0,1,1,0-1.333h1.333A.666.666,0,0,1,13.333,14Z" transform="translate(379 155)" fill="#11a14a"/>
+    </g>
+  </g>
+</svg>

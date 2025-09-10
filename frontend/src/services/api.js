@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Base API configuration
-const API_BASE_URL = import.meta.env.VITE_APP_BACKEND_URL || 'https://assetmaster-6.preview.emergentagent.com';
+const API_BASE_URL = import.meta.env.VITE_APP_BACKEND_URL || "http://localhost:3000";
 
 const apiClient = axios.create({
   baseURL: `${API_BASE_URL}/api`,
